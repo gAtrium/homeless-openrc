@@ -6,6 +6,8 @@ name="homeless"
 # Specify the service command (the executable to run)
 command="/usr/bin/homeless"
 
+command_args="--chuid homeless:homeless"
+
 # Define environment variables
 TGBOT_TOKEN="your_token_here"
 FC_DEV="your_dev_value_here"
@@ -19,7 +21,7 @@ depend() {
 
 start() {
   ebegin "Starting $name"
-  start-stop-daemon --start --exec $command --background
+  start-stop-daemon --start --exec $command --background -- $command_args
   eend $?
 }
 
