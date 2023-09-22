@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# https://wiki.alpinelinux.org/wiki/APKBUILD_Reference
+addgroup -S homeless 2>/dev/null
+adduser -S -D -H -s /sbin/nologin -G homeless -g homeless homeless 2>/dev/null
+
+exit 0
