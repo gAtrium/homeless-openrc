@@ -1,0 +1,30 @@
+#!/sbin/openrc-run
+
+# Define the service name
+name="homeless"
+
+# Specify the service command (the executable to run)
+command="/usr/bin/homeless"
+
+# Define environment variables
+TGBOT_TOKEN="your_token_here"
+FC_DEV="your_dev_value_here"
+
+# Export the environment variables
+export TGBOT_TOKEN FC_DEV
+
+depend() {
+  need net
+}
+
+start() {
+  ebegin "Starting $name"
+  start-stop-daemon --start --exec $command --background
+  eend $?
+}
+
+stop() {
+  ebegin "Stopping $name"
+  start-stop-daemon --stop --exec $command
+  eend $?
+}
