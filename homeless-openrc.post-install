@@ -5,4 +5,5 @@ addgroup -S homeless 2>/dev/null
 adduser -S -D -H -s /sbin/nologin -G homeless -g homeless homeless 2>/dev/null
 touch /etc/homeless
 chown homeless:homeless /etc/homeless
+echo "The setup is not complete yet! edit /etc/init.d/homeless with your credentials to run the bot!"
 exit 0
